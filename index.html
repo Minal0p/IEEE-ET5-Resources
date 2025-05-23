@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Discover valuable educational resources provided by the IEEE ET5 Student Branch.">
+  <meta property="og:title" content="IEEE ET5 Student Branch - Educational Resources">
+  <meta property="og:description" content="Discover valuable educational resources provided by the IEEE ET5 Student Branch.">
+  <meta property="og:image" content="https://www.ieee.org/content/dam/ieee-web/standards/images/logo.svg ">
+  <meta property="og:url" content="https://yourwebsite.com/resources.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>IEEE ET5 Student Branch - Resources</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
+
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'GA_MEASUREMENT_ID'); // Replace 'GA_MEASUREMENT_ID' with your actual Google Analytics Measurement ID
+  </script>
+
+  <style>
+    /* Root variables for consistent theming */
+    :root {
+      --primary: #00629B; /* IEEE Blue */
+      --secondary: #FFD100; /* IEEE Gold */
+      --dark: #003865; /* Dark Blue */
+      --light: #E9F1F7; /* Light Grayish Blue */
+      --accent: #00A5E3; /* Lighter Blue */
+      --success: #28a745; /* Green for success messages */
+      --error: #dc3545; /* Red for error messages */
+    }
+
+    /* Universal box-sizing and font family */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: #333;
+      background-color: var(--light);
+      scroll-behavior: smooth;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(0, 98, 155, 0.05) 5%, transparent 5%),
+        radial-gradient(circle at 90% 80%, rgba(255, 209, 0, 0.05) 5%, transparent 5%);
+      background-size: 50px 50px, 50px 50px;
+      background-attachment: fixed;
+    }
+
+    h1, h2, h3 {
+      font-weight: bold;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img[loading="lazy"] {
+      opacity: 0.8;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    img[loading="lazy"]:loaded {
+      opacity: 1;
+    }
+
+    /* Header Styling */
+    header#header {
+      background: linear-gradient(120deg, var(--primary), var(--accent));
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, border-bottom 0.3s ease;
+    }
+
+    /* Header background when scrolled */
+    header#header.scrolled {
+      background-color: var(--dark); /* Solid dark blue when scrolled */
+      border-bottom: 3px solid var(--secondary); /* Add a border on scroll */
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      animation: fadeInDown 1s ease;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .logo-text h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: white;
+      font-weight: 500;
+      position: relative;
+      transition: all 0.3s ease;
+      padding-bottom: 5px;
+    }
+
+    /* Navigation underline effect */
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: 0;
+      left: 0; /* For LTR */
+      background: var(--secondary);
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+      right: 0; /* For LTR */
+    }
+
+    nav ul li a:hover {
+      color: var(--secondary);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem; /* Slightly larger for touch */
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: white;
+      padding: 0.5rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Mobile navigation */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        width: 100%;
+        background: var(--primary);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+
+      nav ul {
+        flex-direction: column;
+        padding: 1rem 0;
+        text-align: left; /* Align to left for LTR */
+      }
+
+      nav ul li {
+        margin: 0.5rem 0;
+        padding: 0 1rem;
+      }
+    }
+
+    main {
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+      position: relative; /* For z-index stacking */
+      z-index: 2; /* Ensure main content is above body background */
+      background-color: transparent; /* Allow body background to show through */
+    }
+
+    section {
+      padding: 4rem 2rem;
+      direction: ltr; /* Ensure LTR for content */
+      text-align: center; /* Center section content */
+      position: relative; /* For z-index stacking */
+      z-index: 2; /* Ensure section content is above body background */
+      background-color: white; /* Solid background to cover body pattern */
+      border-radius: 10px; /* Rounded corners for sections */
+      margin-bottom: 2rem; /* Space between sections */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow for sections */
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px; /* Space for underline */
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 4px;
+      background: var(--secondary);
+      bottom: 0; /* Position at the bottom of the title */
+      left: 25%;
+      border-radius: 50px;
+    }
+
+    /* General card styling */
+    .resources-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .resource-card {
+      flex: 1 1 280px;
+      max-width: 350px;
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left; /* Align to left for LTR */
+      position: relative;
+      overflow: hidden;
+      opacity: 0; /* Initial state for animate-on-scroll */
+      transform: translateY(30px) scale(0.95); /* Initial state for animate-on-scroll */
+    }
+
+    /* Staggered animation for cards */
+    .resources-grid .resource-card:nth-child(1) { transition-delay: 0s; }
+    .resources-grid .resource-card:nth-child(2) { transition-delay: 0.1s; }
+    .resources-grid .resource-card:nth-child(3) { transition-delay: 0.2s; }
+    .resources-grid .resource-card:nth-child(4) { transition-delay: 0.3s; }
+    .resources-grid .resource-card:nth-child(5) { transition-delay: 0.4s; }
+    .resources-grid .resource-card:nth-child(6) { transition-delay: 0.5s; }
+    .resources-grid .resource-card:nth-child(7) { transition-delay: 0.6s; }
+    .resources-grid .resource-card:nth-child(8) { transition-delay: 0.7s; }
+
+
+    .resource-card.animated {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .resource-card:hover {
+      transform: translateY(-8px) scale(1.02); /* More pronounced hover effect */
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Resource Cards */
+    .resource-card {
+      border-left: 4px solid var(--primary); /* For LTR */
+      border-right: none; /* Override RTL */
+      text-align: left; /* Align to left for LTR */
+    }
+
+    .resource-card h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .resource-card p {
+        margin-bottom: 0.5rem; /* Adjust margin for badge */
+    }
+
+    .resource-card a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--accent);
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .resource-card a:hover {
+      color: var(--dark);
+      transform: translateX(8px); /* More pronounced slide effect for LTR */
+    }
+
+    /* Membership Required Badge */
+    .membership-badge {
+      display: inline-block;
+      background-color: var(--secondary); /* IEEE Gold */
+      color: var(--dark); /* Dark Blue text */
+      padding: 0.3rem 0.7rem;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-top: 0.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Call to Action Buttons */
+    .cta-button {
+      background: var(--primary); /* Fallback */
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-block;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+
+      /* New: Gradient background */
+      background-image: linear-gradient(to right, var(--primary) 0%, var(--accent) 100%);
+      background-size: 200% auto; /* For hover effect */
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Subtle text shadow */
+    }
+
+    .cta-button:hover {
+      background-position: right center; /* Shift gradient on hover */
+      background-image: linear-gradient(to right, var(--dark) 0%, var(--primary) 100%); /* Darker gradient on hover */
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Footer Styling */
+    footer {
+      background: linear-gradient(135deg, var(--dark), var(--primary));
+      color: white;
+      padding: 3rem 0 1rem;
+      text-align: left;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    .footer-section {
+      flex: 1 1 250px;
+      min-width: 200px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 5px;
+      display: inline-block;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section ul li a,
+    .footer-section ul li {
+      color: white;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-section ul li a:hover {
+      color: var(--secondary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      transition: all 0.3s ease, transform 0.2s ease; /* Added transform to transition */
+    }
+
+    .social-links a:hover {
+      background: var(--secondary);
+      color: var(--dark);
+      transform: translateY(-5px) scale(1.1); /* Lift and scale on hover */
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Animations */
+    /* General animate-on-scroll (now with scale) */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slower and smoother */
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Hero section specific animations (not used in this page, but kept for consistency if copied) */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* NoScript Warning */
+    noscript {
+      display: block;
+      background: #fee;
+      color: #a00;
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .logo {
+        margin-bottom: 1rem;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav ul li {
+        margin: 0 0.5rem 0.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 2rem 1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .resource-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-section {
+        min-width: unset;
+        width: 100%;
+      }
+
+      .footer-section h3 {
+        margin: 1rem auto 1rem;
+      }
+
+      .footer-section ul li, .social-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <noscript>
+    This website uses JavaScript. Please enable JavaScript to view all features of the site.
+  </noscript>
+
+  <header id="header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="https://ieee.org.eg/wp-content/uploads/2022/05/logo-P-Mohamed-Adel-Hegazy-300x300.jpg " alt="IEEE ET5 Logo" loading="lazy">
+        <div class="logo-text">
+          <h1>IEEE ET5 SB</h1>
+          <span>IEEE Egyptian Students' Branch</span>
+        </div>
+      </div>
+      <nav id="navMenu">
+        <ul>
+          <li><a href="https://minal0p.github.io/IEEE-ET5/">Home</a></li>
+          <li><a href="https://minal0p.github.io/IEEE-ET5/#about">About Us</a></li>
+          <li><a href="https://minal0p.github.io/IEEE-ET5/#board-members">Board Team</a></li>
+          <li><a href="https://minal0p.github.io/IEEE-ET5-Membership/">Membership</a></li>
+          <li><a href="https://minal0p.github.io/IEEE-ET5-Events/">Events</a></li>
+          <li><a href="https://minal0p.github.io/IEEE-ET5-Resources/">Resources</a></li>
+          <li><a href="https://minal0p.github.io/IEEE-ET5-Ai/">AI Helper</a></li>
+          <li><a href="https://minal0p.github.io/IEEE-ET5/#contact-us">Contact Us</a></li>
+        </ul>
+      </nav>
+      <button id="menuToggle" class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="resources" class="animate-on-scroll">
+      <h2 class="section-title">Educational Resources</h2>
+      <p style="text-align:center; margin-bottom: 2rem;">Benefit from the valuable educational resources we provide to support your academic and professional journey.</p>
+      <div class="resources-grid">
+        <div class="resource-card animate-on-scroll">
+          <h3>IEEE Xplore Digital Library</h3>
+          <p>Access thousands of research papers and scientific journals in various technical disciplines, an indispensable resource for researchers.</p>
+          <a href="https://ieeexplore.ieee.org/Xplore/home.jsp " target="_blank">Discover Now <i class="fas fa-external-link-alt"></i></a>
+          <span class="membership-badge">Membership required</span>
+        </div>
+        <div class="resource-card animate-on-scroll">
+          <h3>Advanced Training Courses</h3>
+          <p>The IEEE Learn platform provides specialized and certified courses in modern engineering and technology fields.</p>
+          <a href="https://ieeexplore.ieee.org/courses/home" target="_blank">Start Learning <i class="fas fa-external-link-alt"></i></a>
+          <span class="membership-badge">Membership required</span>
+        </div>
+        <div class="resource-card animate-on-scroll">
+          <h3>Online Courses & Tutorials (General)</h3>
+          <p>Explore a wide range of online courses and tutorials on platforms like Coursera, edX, and Udemy, covering various engineering and tech topics.</p>
+          <a href="https://www.coursera.org/" target="_blank">Find Courses <i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="resource-card animate-on-scroll">
+          <h3>Career Development & Networking</h3>
+          <p>Resources for resume building, interview preparation, and networking opportunities to kickstart or advance your career in engineering.</p>
+          <a href="https://jobs.ieee.org/" target="_blank">Boost Your Career <i class="fas fa-briefcase"></i></a>
+          <span class="membership-badge">Membership required</span>
+        </div>
+        <div class="resource-card animate-on-scroll">
+          <h3>IEEE Standards</h3>
+          <p>Access a vast collection of industry standards that shape technology worldwide, crucial for engineers and developers.</p>
+          <a href="https://standards.ieee.org/" target="_blank">Explore Standards <i class="fas fa-external-link-alt"></i></a>
+          <span class="membership-badge">Membership required</span>
+        </div>
+        <div class="resource-card animate-on-scroll">
+          <h3>IEEE Spectrum Magazine</h3>
+          <p>Stay informed with award-winning articles on technology trends, breakthroughs, and their impact on society.</p>
+          <a href="https://spectrum.ieee.org/" target="_blank">Read Magazine <i class="fas fa-book-reader"></i></a>
+          <span class="membership-badge">Membership required</span>
+        </div>
+        <div class="resource-card animate-on-scroll">
+          <h3>IEEE Collabratec</h3>
+          <p>Connect with a global community of technology professionals, collaborate on projects, and find mentors.</p>
+          <a href="https://ieee-collabratec.ieee.org/" target="_blank">Join Community <i class="fas fa-users"></i></a>
+          <span class="membership-badge">Membership required</span>
+        </div>
+      </div>
+      <div style="margin-top: 3rem;">
+        </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="https://minal0p.github.io/IEEE-ET5/">Home</a></li>
+          <li><a href="https://minal0p.github.io/IEEE-ET5/#about">About Us</a></li>
+          <li><a href="https://minal0p.github.io/IEEE-ET5/#board-members">Board Team</a></li>
+          <li><a href="https://minal0p.github.io/IEEE-ET5-Membership/">Membership</a></li>
+          <li><a href="https://minal0p.github.io/IEEE-ET5-Events/">Events</a></li>
+          <li><a href="https://minal0p.github.io/IEEE-ET5-Resources/">Resources</a></li>
+          <li><a href="https://minal0p.github.io/IEEE-ET5-Ai/">AI Helper</a></li>
+          <li><a href="https://minal0p.github.io/IEEE-ET5/#contact-us">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><i class="fas fa-envelope"></i> ieee.et50@gmail.com</li>
+          <li><i class="fas fa-phone-alt"></i> +20 120 300 6152</li>
+          <li><i class="fas fa-map-marker-alt"></i> New Cairo Academy, Fifth Settlement </li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="https://facebook.com/IEEE.ET5.SB " target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://linkedin.com/company/ieee-et5-student-branch " target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://instagram.com/ieee.et5.sb " target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 IEEE ET5 Student Branch. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', function () {
+        navMenu.classList.toggle('active');
+      });
+    }
+
+    // Header background change on scroll
+    window.addEventListener('scroll', function () {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Animate on Scroll functionality
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+    function checkScroll() {
+      animateElements.forEach(el => {
+        const elementPosition = el.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+
+        if (elementPosition < screenPosition) {
+          el.classList.add('animated');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('load', checkScroll);
+
+    // Smooth Scroll to Anchors for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      // Exclude external links from smooth scrolling
+      if (anchor.getAttribute('href').startsWith('http') || anchor.getAttribute('href').startsWith('https')) {
+        return; // Skip smooth scroll for external links
+      }
+
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+
+        // Only proceed with smooth scroll if the href is not just '#'
+        // and actually points to an ID section.
+        if (targetId && targetId !== '#') {
+          e.preventDefault(); // Prevent default only if it's a valid scroll target
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 70, // Offset by header height
+              behavior: 'smooth'
+            });
+            // Close mobile nav menu if open after clicking a link
+            if (navMenu.classList.contains('active')) {
+              navMenu.classList.remove('active');
+            }
+          }
+        } else if (targetId === '#') {
+          // If href is just '#', prevent default to stop page from jumping to top
+          e.preventDefault();
+          // Optionally, add specific logic for these placeholder links if needed in the future
+        }
+        // If href is not '#' and doesn't start with '#', let default behavior happen
+        // (e.g., external links, or links to other pages)
+      });
+    });
+
+    // Note: The AI Helper and Contact Form submission logic are not included
+    // as they are not part of the "Resources" section's primary functionality.
+    // If you need them on this page, please specify.
+  </script>
+</body>
+</html>
